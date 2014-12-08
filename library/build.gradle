@@ -15,6 +15,7 @@
  */
 
 apply plugin: 'com.android.library'
+apply plugin: 'bintray-release'
 
 android {
     compileSdkVersion 21
@@ -28,6 +29,22 @@ android {
     }
 }
 
+publish {
+    // https://github.com/novoda/bintray-release/wiki/Configuration-of-the-publish-closure
+    userOrg = 'adw'
+    groupId = 'org.adw.library'
+    artifactId = 'discreteseekbar'
+    version = '1.0.0'
+    description = 'DiscreteSeekbar is my poor attempt to develop an android implementation ' +
+            'of the DiscreteSlider component from the Google Material Design Guidelines.'
+    website = 'https://github.com/AnderWeb/discreteSeekBar'
+}
+
 dependencies {
     compile 'com.android.support:support-v4:21.0.2'
+}
+buildscript {
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.2.5'
+    }
 }
